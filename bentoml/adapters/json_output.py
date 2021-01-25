@@ -16,10 +16,7 @@ import argparse
 import json
 from typing import Iterable, Sequence
 
-from bentoml.adapters.base_output import (
-    BaseOutputAdapter,
-    regroup_return_value,
-)
+from bentoml.adapters.base_output import BaseOutputAdapter, regroup_return_value
 from bentoml.adapters.utils import NumpyJsonEncoder
 from bentoml.types import (
     AwsLambdaEvent,
@@ -44,7 +41,7 @@ class JsonOutput(BaseOutputAdapter):
     """
 
     def pack_user_func_return_value(
-        self, return_result: ApiFuncReturnValue, tasks: Sequence[InferenceTask],
+        self, return_result: ApiFuncReturnValue, tasks: Sequence[InferenceTask]
     ) -> Sequence[InferenceResult[str]]:
         results = []
         for json_obj, task in regroup_return_value(return_result, tasks):
@@ -71,9 +68,9 @@ class JsonOutput(BaseOutputAdapter):
                     )
                 )
             except AssertionError as e:
-                results.append(InferenceError(err_msg=str(e), http_status=400,))
+                results.append(InferenceError(err_msg=str(e), http_status=400))
             except Exception as e:  # pylint: disable=broad-except
-                results.append(InferenceError(err_msg=str(e), http_status=500,))
+                results.append(InferenceError(err_msg=str(e), http_status=500))
         return tuple(results)
 
     def to_http_response(self, result: InferenceResult) -> HTTPResponse:

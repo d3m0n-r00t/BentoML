@@ -59,10 +59,7 @@ def pytest_configure():
         'values',
         # 'table',  # TODO(bojiang)
     }
-    pytest.DF_AUTO_ORIENTS = {
-        'records',
-        'columns',
-    }
+    pytest.DF_AUTO_ORIENTS = {'records', 'columns'}
 
 
 def pytest_addoption(parser):

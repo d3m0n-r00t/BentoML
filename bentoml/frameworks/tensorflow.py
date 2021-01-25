@@ -231,7 +231,7 @@ class TensorflowSavedModelArtifact(BentoServiceArtifact):
                 )
             if TF2:
                 tf.saved_model.save(
-                    obj, self._tmpdir.name, signatures=signatures, options=options,
+                    obj, self._tmpdir.name, signatures=signatures, options=options
                 )
             else:
                 if self.options:
@@ -240,9 +240,7 @@ class TensorflowSavedModelArtifact(BentoServiceArtifact):
                         "version 1",
                         str(options),
                     )
-                tf.saved_model.save(
-                    obj, self._tmpdir.name, signatures=signatures,
-                )
+                tf.saved_model.save(obj, self._tmpdir.name, signatures=signatures)
             self._path = self._tmpdir.name
         else:
             self._path = obj

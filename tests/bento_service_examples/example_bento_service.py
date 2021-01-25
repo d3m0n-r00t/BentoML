@@ -1,10 +1,5 @@
 import bentoml
-from bentoml.adapters import (
-    DataframeInput,
-    ImageInput,
-    JsonInput,
-    MultiImageInput,
-)
+from bentoml.adapters import DataframeInput, ImageInput, JsonInput, MultiImageInput
 from bentoml.handlers import DataframeHandler  # deprecated
 from bentoml.service.artifacts.pickle import PickleArtifact
 

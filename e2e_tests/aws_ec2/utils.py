@@ -112,7 +112,7 @@ def send_test_data_to_multiple_endpoint(deployment_endpoints, sample_data=None):
     all_results = []
     for endpoint in deployment_endpoints:
         request_result = requests.post(
-            endpoint, data=sample_data, headers={'Content-Type': 'application/json'},
+            endpoint, data=sample_data, headers={'Content-Type': 'application/json'}
         )
         logger.info(f'Sending request to {endpoint}')
         logging.info(

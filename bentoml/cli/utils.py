@@ -161,14 +161,7 @@ def _print_deployments_table(deployments, wide=False):
             'LABELS',
         ]
     else:
-        headers = [
-            'NAME',
-            'NAMESPACE',
-            'PLATFORM',
-            'BENTO_SERVICE',
-            'STATUS',
-            'AGE',
-        ]
+        headers = ['NAME', 'NAMESPACE', 'PLATFORM', 'BENTO_SERVICE', 'STATUS', 'AGE']
     for deployment in deployments:
         row = [
             deployment.name,

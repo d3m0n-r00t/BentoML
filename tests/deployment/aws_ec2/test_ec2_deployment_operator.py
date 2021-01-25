@@ -227,7 +227,7 @@ def test_ec2_describe_no_scaling_success():
                             'State': 'healthy',
                             'Description': 'mock-string',
                         },
-                    },
+                    }
                 ]
             }
 
@@ -276,7 +276,7 @@ def test_ec2_describe_pending():
                             'State': 'unhealthy',
                             'Description': 'mock-string',
                         },
-                    },
+                    }
                 ]
             }
 
@@ -325,7 +325,7 @@ def test_ec2_describe_stack_failure():
                             'State': 'healthy',
                             'Description': 'mock-string',
                         },
-                    },
+                    }
                 ]
             }
 
@@ -401,7 +401,7 @@ def test_ec2_update_success():
                             'State': 'healthy',
                             'Description': 'mock-string',
                         },
-                    },
+                    }
                 ]
             }
 

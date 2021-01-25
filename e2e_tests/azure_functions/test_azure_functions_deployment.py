@@ -22,7 +22,7 @@ bentoml azure-functions deploy {deployment_name} -b {iris_clf_service} \
     try:
         logger.info(f'Deploying {deployment_name} to Azure function')
         with subprocess.Popen(
-            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE
         ) as proc:
             stdout = proc.stdout.read().decode('utf-8')
         logger.info(stdout)

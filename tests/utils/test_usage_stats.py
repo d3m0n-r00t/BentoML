@@ -4,10 +4,7 @@ from mock import MagicMock, patch
 import bentoml
 from bentoml.cli import create_bentoml_cli
 from bentoml.utils.usage_stats import _get_bento_service_event_properties
-from bentoml.yatai.proto.deployment_pb2 import (
-    DeleteDeploymentResponse,
-    Deployment,
-)
+from bentoml.yatai.proto.deployment_pb2 import DeleteDeploymentResponse, Deployment
 from bentoml.yatai.status import Status
 from bentoml.yatai.yatai_service import get_yatai_service
 

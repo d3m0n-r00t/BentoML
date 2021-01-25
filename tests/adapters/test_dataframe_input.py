@@ -61,26 +61,17 @@ def test_dataframe_handle_aws_lambda_event(make_api):
 
     input_adapter = DataframeInput()
     api = make_api(input_adapter, test_func)
-    event = {
-        "headers": {"Content-Type": "application/json"},
-        "body": test_content,
-    }
+    event = {"headers": {"Content-Type": "application/json"}, "body": test_content}
     response = api.handle_aws_lambda_event(event)
     assert response["statusCode"] == 200
     assert response["body"] == '[{"name":"john"}]'
 
-    event_without_content_type_header = {
-        "headers": {},
-        "body": test_content,
-    }
+    event_without_content_type_header = {"headers": {}, "body": test_content}
     response = api.handle_aws_lambda_event(event_without_content_type_header)
     assert response["statusCode"] == 200
     assert response["body"] == '[{"name":"john"}]'
 
-    event_with_bad_input = {
-        "headers": {},
-        "body": "bad_input_content",
-    }
+    event_with_bad_input = {"headers": {}, "body": "bad_input_content"}
     response = api.handle_aws_lambda_event(event_with_bad_input)
     assert response["statusCode"] == 400
 

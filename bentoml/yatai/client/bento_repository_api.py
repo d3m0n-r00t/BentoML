@@ -391,7 +391,7 @@ class BentoRepositoryAPIClient:
         >>> yatai_client.repository.prune(labels='ci=failed')
         """
         track('py-api-prune')
-        list_bentos_result = self.list(bento_name=bento_name, labels=labels,)
+        list_bentos_result = self.list(bento_name=bento_name, labels=labels)
         if list_bentos_result.status.status_code != yatai_proto.status_pb2.Status.OK:
             error_code, error_message = status_pb_to_error_code_and_message(
                 list_bentos_result.status

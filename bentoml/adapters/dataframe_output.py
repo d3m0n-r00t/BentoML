@@ -45,7 +45,7 @@ class DataframeOutput(JsonOutput):
     @property
     def config(self):
         base_config = super(DataframeOutput, self).config
-        return dict(base_config, output_orient=self.output_orient,)
+        return dict(base_config, output_orient=self.output_orient)
 
     @property
     def pip_dependencies(self):
@@ -55,7 +55,7 @@ class DataframeOutput(JsonOutput):
         return ['pandas']
 
     def pack_user_func_return_value(
-        self, return_result, tasks: Sequence[InferenceTask],
+        self, return_result, tasks: Sequence[InferenceTask]
     ) -> Sequence[InferenceResult[str]]:
         rv = []
         i = 0

@@ -558,7 +558,7 @@ class BentoService:
             return None
         if self._bento_service_bundle_path:
             return os.path.join(
-                self._bento_service_bundle_path, self.name, 'web_static_content',
+                self._bento_service_bundle_path, self.name, 'web_static_content'
             )
         else:
             return os.path.join(os.getcwd(), self.web_static_content)

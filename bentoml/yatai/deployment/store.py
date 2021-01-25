@@ -16,15 +16,7 @@ import logging
 import datetime
 from contextlib import contextmanager
 
-from sqlalchemy import (
-    Column,
-    String,
-    Integer,
-    DateTime,
-    JSON,
-    UniqueConstraint,
-    desc,
-)
+from sqlalchemy import Column, String, Integer, DateTime, JSON, UniqueConstraint, desc
 from sqlalchemy.orm.exc import NoResultFound
 from google.protobuf.json_format import ParseDict
 

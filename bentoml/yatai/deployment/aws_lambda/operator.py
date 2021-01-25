@@ -210,10 +210,10 @@ def _deploy_lambda_function(
         )
         logger.debug('Validating generated template.yaml')
         validate_sam_template(
-            template_file_path, lambda_deployment_config.region, lambda_project_dir,
+            template_file_path, lambda_deployment_config.region, lambda_project_dir
         )
         logger.debug(
-            'Initializing lambda project in directory: %s ...', lambda_project_dir,
+            'Initializing lambda project in directory: %s ...', lambda_project_dir
         )
         init_sam_project(
             lambda_project_dir,
@@ -228,7 +228,7 @@ def _deploy_lambda_function(
                 lambda_project_dir, '.aws-sam', 'build', api_name
             )
             logger.debug(
-                'Checking is function "%s" bundle under lambda size ' 'limit', api_name,
+                'Checking is function "%s" bundle under lambda size ' 'limit', api_name
             )
             # Since we only use s3 get object in lambda function, and
             # lambda function pack their own boto3/botocore modules,
@@ -275,7 +275,7 @@ def _deploy_lambda_function(
             deployment_pb.namespace + '-' + deployment_pb.name
         )
         lambda_deploy(
-            lambda_project_dir, lambda_deployment_config.region, stack_name=stack_name,
+            lambda_project_dir, lambda_deployment_config.region, stack_name=stack_name
         )
 
 

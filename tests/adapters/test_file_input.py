@@ -33,9 +33,7 @@ def test_file_input_aws_lambda_event(input_adapter, bin_file):
         except AttributeError:
             file_bytes_encoded = base64.encodebytes(str(bin_file))
 
-    aws_lambda_event = {
-        "body": file_bytes_encoded,
-    }
+    aws_lambda_event = {"body": file_bytes_encoded}
 
     task = input_adapter.from_aws_lambda_event(aws_lambda_event)
     assert b'\x810\x899' == task.data.read()

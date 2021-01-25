@@ -12,10 +12,7 @@ from bentoml.server.api_server import BentoAPIServer
 from bentoml.exceptions import BentoMLException, CLIException
 from bentoml.server import start_dev_server, start_prod_server
 from bentoml.server.open_api import get_open_api_spec_json
-from bentoml.utils import (
-    ProtoMessageToDict,
-    resolve_bundle_path,
-)
+from bentoml.utils import ProtoMessageToDict, resolve_bundle_path
 from bentoml.cli.click_utils import (
     CLI_COLOR_WARNING,
     CLI_COLOR_SUCCESS,
@@ -344,12 +341,8 @@ def create_bento_service_cli(pip_installed_bundle_path=None):
     @click.option(
         '--build-arg', multiple=True, help="pass through docker image build arguments"
     )
-    @click.option(
-        '-u', '--username', type=click.STRING, required=False,
-    )
-    @click.option(
-        '-p', '--password', type=click.STRING, required=False,
-    )
+    @click.option('-u', '--username', type=click.STRING, required=False)
+    @click.option('-p', '--password', type=click.STRING, required=False)
     @click.option(
         '--yatai-url',
         type=click.STRING,
@@ -426,9 +419,7 @@ def create_bento_service_cli(pip_installed_bundle_path=None):
         except docker.errors.APIError as error:
             raise CLIException(f'Could not build Docker image: {error}')
 
-        _echo(
-            f'Finished building {tag} from {bento}', CLI_COLOR_SUCCESS,
-        )
+        _echo(f'Finished building {tag} from {bento}', CLI_COLOR_SUCCESS)
 
         if push:
             auth_config_payload = (
@@ -448,9 +439,7 @@ def create_bento_service_cli(pip_installed_bundle_path=None):
                         )
                     ):
                         _echo(line)
-                _echo(
-                    f'Pushed {tag} to {name}', CLI_COLOR_SUCCESS,
-                )
+                _echo(f'Pushed {tag} to {name}', CLI_COLOR_SUCCESS)
             except (docker.errors.APIError, BentoMLException) as error:
                 raise CLIException(f'Could not push Docker image: {error}')
 

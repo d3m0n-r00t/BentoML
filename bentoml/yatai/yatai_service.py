@@ -90,7 +90,7 @@ def start_yatai_service_grpc_server(
     from bentoml.yatai.yatai_service_impl import YataiService
 
     yatai_service = YataiService(
-        db_url=db_url, repo_base_url=repo_base_url, s3_endpoint_url=s3_endpoint_url,
+        db_url=db_url, repo_base_url=repo_base_url, s3_endpoint_url=s3_endpoint_url
     )
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     add_YataiServicer_to_server(yatai_service, server)

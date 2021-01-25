@@ -567,7 +567,7 @@ class AwsEc2DeploymentOperator(DeploymentOperatorBase):
             user_id = get_aws_user_id()
             artifact_s3_bucket_name = generate_aws_compatible_string(
                 "btml-{user_id}-{namespace}".format(
-                    user_id=user_id, namespace=deployment_pb.namespace,
+                    user_id=user_id, namespace=deployment_pb.namespace
                 )
             )
             create_s3_bucket_if_not_exists(

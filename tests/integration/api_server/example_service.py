@@ -67,7 +67,7 @@ class ExampleBentoService(bentoml.BentoService):
         return self.artifacts.model.predict_image(images)
 
     @bentoml.api(
-        input=JsonInput(), mb_max_latency=1000, mb_max_batch_size=2000, batch=True,
+        input=JsonInput(), mb_max_latency=1000, mb_max_batch_size=2000, batch=True
     )
     def predict_with_sklearn(self, jsons):
         return self.artifacts.sk_model.predict(jsons)

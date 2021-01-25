@@ -113,7 +113,7 @@ class Fastai1ModelArtifact(BentoServiceArtifact):
         self._model.export(file=self._file_name)
 
         shutil.copyfile(
-            os.path.join(self._model.path, self._file_name), self._model_file_path(dst),
+            os.path.join(self._model.path, self._file_name), self._model_file_path(dst)
         )
 
     def get(self):
@@ -196,7 +196,7 @@ class FastaiModelArtifact(BentoServiceArtifact):
     def save(self, dst):
         self._model.export(fname=self._file_name)
         shutil.copyfile(
-            os.path.join(self._model.path, self._file_name), self._model_file_path(dst),
+            os.path.join(self._model.path, self._file_name), self._model_file_path(dst)
         )
 
     def get(self):

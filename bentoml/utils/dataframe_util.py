@@ -19,13 +19,7 @@ from typing import Iterable, Iterator, Mapping
 
 from bentoml.exceptions import BadInput
 from bentoml.utils import catch_exceptions
-from bentoml.utils.csv import (
-    csv_quote,
-    csv_row,
-    csv_split,
-    csv_splitlines,
-    csv_unquote,
-)
+from bentoml.utils.csv import csv_quote, csv_row, csv_split, csv_splitlines, csv_unquote
 from bentoml.utils.lazy_loader import LazyLoader
 
 pandas = LazyLoader('pandas', globals(), 'pandas')
@@ -213,11 +207,11 @@ def read_dataframes_from_json_n_csv(
     try:
         if not header:
             df = pandas.read_csv(
-                io.StringIO(table), index_col=None, dtype=dtype, header=None,
+                io.StringIO(table), index_col=None, dtype=dtype, header=None
             )
         else:
             df = pandas.read_csv(
-                io.StringIO("\n".join((header, table))), index_col=None, dtype=dtype,
+                io.StringIO("\n".join((header, table))), index_col=None, dtype=dtype
             )
         return df, lens
     except pandas.errors.EmptyDataError:

@@ -24,10 +24,7 @@ from bentoml.cli.click_utils import (
     CLI_COLOR_SUCCESS,
     parse_labels_callback,
 )
-from bentoml.cli.deployment import (
-    _print_deployment_info,
-    _print_deployments_info,
-)
+from bentoml.cli.deployment import _print_deployment_info, _print_deployments_info
 from bentoml.yatai.deployment import ALL_NAMESPACE_TAG
 from bentoml.exceptions import CLIException
 from bentoml.utils import status_pb_to_error_code_and_message
@@ -174,7 +171,7 @@ def get_aws_sagemaker_sub_command():
             )
             raise CLIException(f'{error_code}:{error_message}')
         _echo(
-            f'Successfully created AWS Sagemaker deployment {name}', CLI_COLOR_SUCCESS,
+            f'Successfully created AWS Sagemaker deployment {name}', CLI_COLOR_SUCCESS
         )
         _print_deployment_info(result.deployment, output)
 
@@ -214,7 +211,7 @@ def get_aws_sagemaker_sub_command():
         type=click.INT,
     )
     @click.option(
-        '--api-name', help='User defined API function will be used for inference.',
+        '--api-name', help='User defined API function will be used for inference.'
     )
     @click.option(
         '--timeout',
@@ -286,7 +283,7 @@ def get_aws_sagemaker_sub_command():
             )
             raise CLIException(f'{error_code}:{error_message}')
         _echo(
-            f'Successfully updated AWS Sagemaker deployment {name}', CLI_COLOR_SUCCESS,
+            f'Successfully updated AWS Sagemaker deployment {name}', CLI_COLOR_SUCCESS
         )
         _print_deployment_info(result.deployment, output)
 
@@ -320,8 +317,7 @@ def get_aws_sagemaker_sub_command():
             )
             raise CLIException(f'{error_code}:{error_message}')
         _echo(
-            f'Successfully deleted AWS Sagemaker deployment "{name}"',
-            CLI_COLOR_SUCCESS,
+            f'Successfully deleted AWS Sagemaker deployment "{name}"', CLI_COLOR_SUCCESS
         )
 
     @aws_sagemaker.command(help='Get AWS Sagemaker deployment information')
@@ -378,7 +374,7 @@ def get_aws_sagemaker_sub_command():
         "key2!=value2, key3 In (value3, value3a), key4 DoesNotExist)",
     )
     @click.option(
-        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at',
+        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at'
     )
     @click.option(
         '--asc/--desc',

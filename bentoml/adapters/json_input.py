@@ -19,9 +19,7 @@ from typing import Iterable, Sequence, Tuple
 from bentoml.adapters.string_input import StringInput
 from bentoml.types import InferenceTask, JsonSerializable
 
-ApiFuncArgs = Tuple[
-    Sequence[JsonSerializable],
-]
+ApiFuncArgs = Tuple[Sequence[JsonSerializable],]
 
 
 class JsonInput(StringInput):

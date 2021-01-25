@@ -18,14 +18,7 @@ import sys
 import uuid
 from functools import partial
 
-from flask import (
-    Flask,
-    Response,
-    jsonify,
-    make_response,
-    request,
-    send_from_directory,
-)
+from flask import Flask, Response, jsonify, make_response, request, send_from_directory
 from werkzeug.exceptions import BadRequest, NotFound
 from google.protobuf.json_format import MessageToJson
 
@@ -125,7 +118,7 @@ class BentoAPIServer:
         # Bentoml api service is not thread safe.
         # Flask dev server enabled threaded by default, disable it.
         self.app.run(
-            port=self.port, threaded=False, debug=get_debug_mode(), use_reloader=False,
+            port=self.port, threaded=False, debug=get_debug_mode(), use_reloader=False
         )
 
     @staticmethod
@@ -337,9 +330,7 @@ class BentoAPIServer:
             return response
 
         def api_func_with_tracing():
-            with trace(
-                request.headers, service_name=self.__class__.__name__,
-            ):
+            with trace(request.headers, service_name=self.__class__.__name__):
                 return api_func()
 
         return api_func_with_tracing

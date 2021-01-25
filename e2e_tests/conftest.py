@@ -19,10 +19,7 @@ from bentoml.yatai.deployment.utils import ensure_docker_available_or_raise
 
 from e2e_tests.iris_classifier_example import IrisClassifier
 from e2e_tests.cli_operations import delete_bento
-from e2e_tests.sample_bento_service import (
-    SampleBentoService,
-    UpdatedSampleBentoService,
-)
+from e2e_tests.sample_bento_service import SampleBentoService, UpdatedSampleBentoService
 
 
 logger = logging.getLogger('bentoml.test')

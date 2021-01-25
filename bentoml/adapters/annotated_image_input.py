@@ -214,7 +214,7 @@ class AnnotatedImageInput(MultiFileInput):
                         },
                     },
                 }
-            },
+            }
         }
 
     def extract_user_func_args(self, tasks: Iterable[AnnoImgTask]) -> ApiFuncArgs:
@@ -240,9 +240,7 @@ class AnnotatedImageInput(MultiFileInput):
                     f"{self.accept_image_formats}",
                 )
             except UnicodeDecodeError:
-                task.discard(
-                    http_status=400, err_msg="JSON must be in unicode",
-                )
+                task.discard(http_status=400, err_msg="JSON must be in unicode")
             except json.JSONDecodeError:
                 task.discard(
                     http_status=400,

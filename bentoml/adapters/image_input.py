@@ -27,9 +27,7 @@ imageio = LazyLoader('imageio', globals(), 'imageio')
 numpy = LazyLoader('numpy', globals(), 'numpy')
 
 
-ApiFuncArgs = Tuple[
-    Sequence['numpy.ndarray'],
-]
+ApiFuncArgs = Tuple[Sequence['numpy.ndarray'],]
 
 
 class ImageInput(FileInput):
@@ -153,9 +151,7 @@ class ImageInput(FileInput):
           --input-file folder/*.jpg --max-batch-size 10
     """
 
-    def __init__(
-        self, accept_image_formats=None, pilmode="RGB", **base_kwargs,
-    ):
+    def __init__(self, accept_image_formats=None, pilmode="RGB", **base_kwargs):
         assert imageio, "`imageio` dependency can be imported"
 
         super().__init__(**base_kwargs)

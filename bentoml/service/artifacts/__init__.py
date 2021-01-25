@@ -70,7 +70,7 @@ class BentoServiceArtifact:
 
     def _metadata_path(self, base_path):
         return os.path.join(
-            base_path, re.sub("[^-a-zA-Z0-9_.() ]+", "", self.name) + ".yml",
+            base_path, re.sub("[^-a-zA-Z0-9_.() ]+", "", self.name) + ".yml"
         )
 
     def save(self, dst):

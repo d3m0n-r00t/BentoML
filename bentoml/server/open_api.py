@@ -89,7 +89,7 @@ def get_open_api_spec_json(bento_service):
                     },
                 ),
                 responses=default_response,
-            ),
+            )
         )
 
     for api in bento_service.inference_apis:

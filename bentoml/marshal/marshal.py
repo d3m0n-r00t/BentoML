@@ -86,7 +86,7 @@ def metrics_patch(cls):
             func = super(_MarshalService, self).request_dispatcher
             api_name = request.match_info.get("name", "/")
             _metrics_request_in_progress = self.metrics_request_in_progress.labels(
-                endpoint=api_name, http_method=request.method,
+                endpoint=api_name, http_method=request.method
             )
             _metrics_request_in_progress.inc()
             time_st = time.time()
@@ -263,9 +263,7 @@ class MarshalService:
                     request.method, url, data=data, headers=request.headers
                 ) as resp:
                     body = await resp.read()
-        return aiohttp.web.Response(
-            status=resp.status, body=body, headers=resp.headers,
-        )
+        return aiohttp.web.Response(status=resp.status, body=body, headers=resp.headers)
 
     async def _batch_handler_template(self, requests, api_name):
         '''
@@ -319,7 +317,7 @@ class MarshalService:
         Start an micro batch server at the specific port on the instance or parameter.
         """
         marshal_proc = multiprocessing.Process(
-            target=self.fork_start_app, kwargs=dict(port=port), daemon=True,
+            target=self.fork_start_app, kwargs=dict(port=port), daemon=True
         )
         marshal_proc.start()
         logger.info("Running micro batch service on :%d", port)

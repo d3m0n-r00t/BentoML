@@ -319,7 +319,7 @@ def get_azure_functions_sub_command():
         "key2!=value2, key3 In (value3, value3a), key4 DoesNotExist)",
     )
     @click.option(
-        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at',
+        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at'
     )
     @click.option(
         '--asc/--desc',

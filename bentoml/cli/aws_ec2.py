@@ -24,10 +24,7 @@ from bentoml.cli.click_utils import (
     _echo,
     CLI_COLOR_SUCCESS,
 )
-from bentoml.cli.deployment import (
-    _print_deployment_info,
-    _print_deployments_info,
-)
+from bentoml.cli.deployment import _print_deployment_info, _print_deployments_info
 from bentoml.yatai.deployment import ALL_NAMESPACE_TAG
 from bentoml.yatai.deployment.aws_ec2.constants import (
     DEFAULT_MIN_SIZE,
@@ -58,11 +55,9 @@ def get_aws_ec2_sub_command():
         callback=parse_bento_tag_callback,
     )
     @click.option(
-        "-n", "--namespace", type=click.STRING, callback=parse_bento_tag_callback,
+        "-n", "--namespace", type=click.STRING, callback=parse_bento_tag_callback
     )
-    @click.option(
-        "--region", type=click.STRING, help="Region to deploy service in",
-    )
+    @click.option("--region", type=click.STRING, help="Region to deploy service in")
     @click.option(
         "--min-size",
         type=click.INT,
@@ -329,9 +324,7 @@ def get_aws_ec2_sub_command():
         help="The maximum amount of AWS Lambda deployments to be listed at once",
     )
     @click.option(
-        "--offset",
-        type=click.INT,
-        help="The offset for list of AWS Lambda deployments",
+        "--offset", type=click.INT, help="The offset for list of AWS Lambda deployments"
     )
     @click.option(
         "-l",
@@ -342,7 +335,7 @@ def get_aws_ec2_sub_command():
         "key2!=value2, key3 In (value3, value3a), key4 DoesNotExist)",
     )
     @click.option(
-        "--order-by", type=click.Choice(["created_at", "name"]), default="created_at",
+        "--order-by", type=click.Choice(["created_at", "name"]), default="created_at"
     )
     @click.option(
         "--asc/--desc",

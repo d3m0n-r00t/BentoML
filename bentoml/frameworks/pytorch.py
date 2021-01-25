@@ -4,10 +4,7 @@ import zipfile
 import pathlib
 import shutil
 
-from bentoml.exceptions import (
-    InvalidArgument,
-    MissingDependencyException,
-)
+from bentoml.exceptions import InvalidArgument, MissingDependencyException
 from bentoml.service.artifacts import BentoServiceArtifact
 from bentoml.service.env import BentoServiceEnv
 from bentoml.utils import cloudpickle

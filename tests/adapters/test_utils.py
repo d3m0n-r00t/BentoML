@@ -2,13 +2,7 @@ from bentoml.adapters.utils import concat_list
 
 
 def test_concat():
-    lst = [
-        None,
-        [],
-        [1],
-        [1, 2],
-        [1, 2, 3],
-    ]
+    lst = [None, [], [1], [1, 2], [1, 2, 3]]
     datas, slices = concat_list(lst)
 
     for s, origin_data in zip(slices, lst):
@@ -19,18 +13,8 @@ def test_concat():
 
 
 def test_concat_with_flags():
-    lst = [
-        [1],
-        None,
-        1,
-        None,
-    ]
-    flags = [
-        True,
-        True,
-        False,
-        False,
-    ]
+    lst = [[1], None, 1, None]
+    flags = [True, True, False, False]
 
     datas, slices = concat_list(lst, flags)
     assert datas == [1, 1]
@@ -43,22 +27,8 @@ def test_concat_with_flags():
 
 
 def test_concat_lists_with_flags():
-    lst = [
-        [[1], [2]],
-        [],
-        None,
-        [1],
-        "string",
-        None,
-    ]
-    flags = [
-        True,
-        True,
-        True,
-        False,
-        False,
-        False,
-    ]
+    lst = [[[1], [2]], [], None, [1], "string", None]
+    flags = [True, True, True, False, False, False]
 
     datas, slices = concat_list(lst, flags)
     assert datas == [[1], [2], [1], "string"]

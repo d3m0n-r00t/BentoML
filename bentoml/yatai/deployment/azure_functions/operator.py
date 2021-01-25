@@ -329,7 +329,7 @@ def _set_cors_settings(function_name, resource_group_name):
 
 
 def _deploy_azure_functions(
-    namespace, deployment_name, deployment_spec, bento_pb, bento_path,
+    namespace, deployment_name, deployment_spec, bento_pb, bento_path
 ):
     azure_functions_config = deployment_spec.azure_functions_operator_config
     (
@@ -342,7 +342,7 @@ def _deploy_azure_functions(
     with TempDirectory() as temp_dir:
         azure_functions_project_dir = os.path.join(temp_dir, deployment_spec.bento_name)
         _init_azure_functions_project(
-            azure_functions_project_dir, bento_path, azure_functions_config,
+            azure_functions_project_dir, bento_path, azure_functions_config
         )
         _call_az_cli(
             command=[
@@ -449,7 +449,7 @@ def _deploy_azure_functions(
 
 
 def _update_azure_functions(
-    namespace, deployment_name, deployment_spec, bento_pb, bento_path,
+    namespace, deployment_name, deployment_spec, bento_pb, bento_path
 ):
     azure_functions_config = deployment_spec.azure_functions_operator_config
     (
@@ -462,7 +462,7 @@ def _update_azure_functions(
     with TempDirectory() as temp_dir:
         azure_functions_project_dir = os.path.join(temp_dir, deployment_spec.bento_name)
         _init_azure_functions_project(
-            azure_functions_project_dir, bento_path, azure_functions_config,
+            azure_functions_project_dir, bento_path, azure_functions_config
         )
         docker_tag = _build_and_push_docker_image_to_azure_container_registry(
             azure_functions_project_dir=azure_functions_project_dir,
@@ -690,7 +690,7 @@ class AzureFunctionsDeploymentOperator(DeploymentOperatorBase):
                 state = DeploymentState.ERROR
             info_json = {k: v for k, v in show_function_result.items() if k in keys}
             deployment_state = DeploymentState(
-                info_json=json.dumps(info_json, default=str), state=state,
+                info_json=json.dumps(info_json, default=str), state=state
             )
             deployment_state.timestamp.GetCurrentTime()
             return DescribeDeploymentResponse(

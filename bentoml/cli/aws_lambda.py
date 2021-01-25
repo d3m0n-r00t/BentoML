@@ -25,10 +25,7 @@ from bentoml.cli.click_utils import (
     CLI_COLOR_SUCCESS,
     parse_labels_callback,
 )
-from bentoml.cli.deployment import (
-    _print_deployment_info,
-    _print_deployments_info,
-)
+from bentoml.cli.deployment import _print_deployment_info, _print_deployments_info
 from bentoml.yatai.deployment import ALL_NAMESPACE_TAG
 from bentoml.exceptions import CLIException
 
@@ -76,7 +73,7 @@ def get_aws_lambda_sub_command():
     )
     @click.option('--region', help='AWS region name for deployment')
     @click.option(
-        '--api-name', help='User defined API function will be used for inference',
+        '--api-name', help='User defined API function will be used for inference'
     )
     @click.option(
         '--memory-size',
@@ -197,9 +194,7 @@ def get_aws_lambda_sub_command():
                 result.status
             )
             raise CLIException(f'{error_code}:{error_message}')
-        _echo(
-            f'Successfully updated AWS Lambda deployment {name}', CLI_COLOR_SUCCESS,
-        )
+        _echo(f'Successfully updated AWS Lambda deployment {name}', CLI_COLOR_SUCCESS)
         _print_deployment_info(result.deployment, output)
 
     @aws_lambda.command(help='Delete AWS Lambda deployment')
@@ -235,9 +230,7 @@ def get_aws_lambda_sub_command():
                 result.status
             )
             raise CLIException(f'{error_code}:{error_message}')
-        _echo(
-            f'Successfully deleted AWS Lambda deployment "{name}"', CLI_COLOR_SUCCESS,
-        )
+        _echo(f'Successfully deleted AWS Lambda deployment "{name}"', CLI_COLOR_SUCCESS)
 
     @aws_lambda.command(help='Get AWS Lambda deployment information')
     @click.argument('name', type=click.STRING)
@@ -291,7 +284,7 @@ def get_aws_lambda_sub_command():
         "key2!=value2, key3 In (value3, value3a), key4 DoesNotExist)",
     )
     @click.option(
-        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at',
+        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at'
     )
     @click.option(
         '--asc/--desc',

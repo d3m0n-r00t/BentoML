@@ -24,7 +24,7 @@ def get_bento_service_info(bento_name, bento_version):
 def execute_bentoml_run_command(bento_tag, data, api="predict"):
     command = ['bentoml', 'run', bento_tag, api, '--input', data, "-q"]
     proc = subprocess.Popen(
-        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=os.environ,
+        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, env=os.environ
     )
     stdout = proc.stdout.read().decode('utf-8')
     return stdout

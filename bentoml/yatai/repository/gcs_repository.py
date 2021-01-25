@@ -57,7 +57,7 @@ class GCSRepository(BaseRepository):
             blob = bucket.blob(object_name)
 
             response = blob.generate_signed_url(
-                version="v4", expiration=self._expiration, method="PUT",
+                version="v4", expiration=self._expiration, method="PUT"
             )
         except Exception as e:
             raise YataiRepositoryException(
@@ -80,7 +80,7 @@ class GCSRepository(BaseRepository):
             blob = bucket.blob(object_name)
 
             response = blob.generate_signed_url(
-                version="v4", expiration=self._expiration, method="GET",
+                version="v4", expiration=self._expiration, method="GET"
             )
             return response
         except Exception:  # pylint: disable=broad-except

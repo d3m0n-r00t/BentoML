@@ -55,7 +55,7 @@ class BaseOutputAdapter:
 
     @property
     def config(self):
-        return dict(cors=self.cors,)
+        return dict(cors=self.cors)
 
     @property
     def pip_dependencies(self):
@@ -65,7 +65,7 @@ class BaseOutputAdapter:
         return []
 
     def pack_user_func_return_value(
-        self, return_result: ApiFuncReturnValue, tasks: Sequence[InferenceTask],
+        self, return_result: ApiFuncReturnValue, tasks: Sequence[InferenceTask]
     ) -> Sequence[InferenceResult]:
         """
         Pack the return value of user defined API function into InferenceResults

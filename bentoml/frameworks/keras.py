@@ -214,8 +214,7 @@ class KerasModelArtifact(BentoServiceArtifact):
                 # otherwise, load keras model via standard load_model
         else:
             model = keras_module.models.load_model(
-                self._model_file_path(path),
-                custom_objects=self._default_custom_objects,
+                self._model_file_path(path), custom_objects=self._default_custom_objects
             )
         return self.pack(model)
 

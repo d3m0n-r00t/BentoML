@@ -113,7 +113,7 @@ def containerize_bento_service(
     try:
         logger.info("Building image")
         for line in docker_api.build(
-            path=saved_bundle_path, tag=tag, decode=True, buildargs=docker_build_args,
+            path=saved_bundle_path, tag=tag, decode=True, buildargs=docker_build_args
         ):
             logger.debug(line)
     except docker.errors.APIError as error:

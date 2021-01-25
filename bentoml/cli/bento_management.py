@@ -16,14 +16,8 @@ import click
 from tabulate import tabulate
 
 from bentoml.utils.lazy_loader import LazyLoader
-from bentoml.cli.click_utils import (
-    _echo,
-    parse_bento_tag_list_callback,
-)
-from bentoml.cli.utils import (
-    human_friendly_age_from_datetime,
-    _format_labels_for_print,
-)
+from bentoml.cli.click_utils import _echo, parse_bento_tag_list_callback
+from bentoml.cli.utils import human_friendly_age_from_datetime, _format_labels_for_print
 from bentoml.utils import pb_to_yaml
 from bentoml.yatai.client import get_yatai_client
 
@@ -146,7 +140,7 @@ def add_bento_sub_command(cli):
         "In (value3, value3a), key4 DoesNotExist)",
     )
     @click.option(
-        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at',
+        '--order-by', type=click.Choice(['created_at', 'name']), default='created_at'
     )
     @click.option('--ascending-order', is_flag=True)
     @click.option(
@@ -176,7 +170,7 @@ def add_bento_sub_command(cli):
 
     @cli.command(
         help='Delete bento. To delete multiple bentos provide the name '
-        'version tag separated by "," for example "bentoml delete name:v1,name:v2',
+        'version tag separated by "," for example "bentoml delete name:v1,name:v2'
     )
     @click.argument("bentos", type=click.STRING, callback=parse_bento_tag_list_callback)
     @click.option(
@@ -209,7 +203,7 @@ def add_bento_sub_command(cli):
             yc.repository.delete(bento)
             _echo(f'BentoService {bento} deleted')
 
-    @cli.command(help='Pull BentoService from remote yatai server',)
+    @cli.command(help='Pull BentoService from remote yatai server')
     @click.argument("bento", type=click.STRING)
     @click.option(
         '--yatai-url',

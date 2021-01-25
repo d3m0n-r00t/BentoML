@@ -28,9 +28,7 @@ def b64_hook(o):
     return o
 
 
-ApiFuncArgs = Tuple[
-    Sequence[JsonSerializable],
-]
+ApiFuncArgs = Tuple[Sequence[JsonSerializable],]
 
 
 class TfTensorInput(StringInput):
@@ -94,7 +92,7 @@ class TfTensorInput(StringInput):
     @property
     def config(self):
         base_config = super().config
-        return dict(base_config, method=self.method,)
+        return dict(base_config, method=self.method)
 
     @property
     def request_schema(self):
@@ -129,7 +127,7 @@ class TfTensorInput(StringInput):
                 parsed_json = json.loads(task.data, object_hook=b64_hook)
                 if parsed_json.get("instances") is None:
                     task.discard(
-                        http_status=400, err_msg="input format is not implemented",
+                        http_status=400, err_msg="input format is not implemented"
                     )
                 else:
                     instances = parsed_json.get("instances")
